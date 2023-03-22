@@ -1,0 +1,57 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Mar 22 21:22:07 2023
+
+@author: נעמה
+"""
+
+#Q1:
+def my_func (x1,x2,x3):
+    for i in [x1,x2,x3]:
+        if type(i) is not int:
+            if type(i) is not float:
+                return None
+            
+    y = (x1+x2+x3)*(x2+x3)*x3
+    z = x1+x2+x3
+    if z == 0:
+        return "Not a number - denominator equals zero"
+    else:
+        return float(y/z)
+        
+
+#Q2:
+
+#a
+
+def revword(word:str) -> str:
+    w = word.lower()
+    a = ''
+    for j in range(0,len(w)):
+        a += w[-1]
+        w = w[0:-1]
+    return a
+
+
+#print(revword('abCDef'))
+
+#b
+
+def countword() -> int:  
+    text = open("C:/python/text.txt", 'r')
+    all_text = ''
+    rowlist= []
+    counter = 1
+    for row in text:
+        row = row.replace('\n',' ')
+        rowlist.append(row)
+        all_text += row
+    word = rowlist[0].strip()
+    all_text = all_text.split()
+    for w in all_text:
+        w = revword(w)
+        if w == word:
+            counter +=1
+    return counter
+
+#print(countword())
